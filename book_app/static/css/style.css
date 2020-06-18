@@ -1,0 +1,27 @@
+div#container{
+    background-color: silver;
+    border: 1px solid black;
+    padding: 10px;
+    width:500px;
+}
+div#registration{
+    display: inline-block;
+    border: 1px solid black;
+    padding: 10px;
+    background-color: rgb(139, 194, 231);
+}
+
+div#login{
+    border: 1px solid black;
+    padding: 10px;
+    position: relative;
+    float: right;
+    background-color: rgb(148, 162, 240);
+}
+
+p#form{
+    text-align: left;
+}
+p input{
+    float: right;
+}

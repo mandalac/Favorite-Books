@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div id='container'>
+        <div id='text'>
+            <h1>Welcome,{{request.session.user_firstName}}!</h1>
+        </div>
+        <div id='button'>
+            <a href='/logout'>Log Out</a>
+        </div>
+    </div>
+    <div id='view_book_info'>
+        <h1>{{book.title}}</h1>
+        <p>Added by: {{book.uploader.first_name}}</p>
+        <p>Added on: {{book.created_at}}</p>
+        <p>Last updated on: {{book.updated_at}}</p>
+        <p>Description: {{book.description}}</p>
+    </div>
+    <div id='Liked_books'>
+        <h1>Users Who Like This Book: </h1>
+        {% for user in book.favorites.all %}
+            <p>{{user.first_name}} {{user.last_name}}</p>
+        {% endfor %}
+    </div>
+    <div id='favorites_unfavorite'>
+        
+            {% if user in book.favorites.all %}
+                <a href='/un_favorite/{{book.id}}'>Un-Favorite</a>
+            {% else %}
+                <a href='/add_to_favorites/{{book.id}}'>Add To Favorites</a>
+            {% endif %}
+
+
+    </div>
+</body>
+</html>
